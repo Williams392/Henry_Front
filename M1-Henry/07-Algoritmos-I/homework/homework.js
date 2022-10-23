@@ -14,6 +14,11 @@ function bubbleSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < i; j++){
+      if (array[j] > array[j + 1]) swap(array, j, j + 1);
+    }
+  }
 
 }
 
@@ -24,6 +29,21 @@ function insertionSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
 
+  // [1, 5, 4, 2, 8]
+  //     i
+  //                j
+
+  // min = 3
+
+  function swap(array, idx1, idx2){
+  // [1, 5, 4, 2, 8]
+  //   idx1 = 0
+  //   idx2 = 2
+
+    var aux = array[idx1];      // 1
+    array[idx1] = array[idx2];
+    array[idx2] = aux;
+  }
 }
 
 
@@ -32,7 +52,17 @@ function selectionSort(array) {
   // el array recibido como parámetro utilizando dos arreglos
   // Devolver el array ordenado resultante
   // Tu código:
+  for (let i = 0; i < array.length; i++) {
+    var min = i;
 
+    for (let j = i + 1; j < array.length; j++){
+      if (array[j] < array[min]) min = j;
+    }
+
+    if (min !== i) swap(array, i, min);
+  }
+
+  return array;
 }
 
 
